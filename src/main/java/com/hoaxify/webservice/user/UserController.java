@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,7 +26,8 @@ public class UserController {
 
     //@CrossOrigin proxy kullandığımız için gerek kalmadı
     @PostMapping("/api/1.0/users")
-    public ResponseEntity<?> save(@RequestBody User user){
+    public ResponseEntity<?> save(
+           @Validated @RequestBody User user){
         String username= user.getUsername();
         String displayName= user.getDisplayName();
 
