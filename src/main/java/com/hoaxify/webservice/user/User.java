@@ -20,6 +20,7 @@ public class User {
 
     @NotBlank
     @Size(min=4,max=255)
+    @UniqueUsername
     private String username;
 
     @NotBlank
